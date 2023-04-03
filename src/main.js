@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import App from './App.vue';
+import App from '@/app/App.vue';
 import '@/assets/styles/main.sass';
 
-createApp(App).mount('#app');
+createApp(App).mount('#widget');
