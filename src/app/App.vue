@@ -9,9 +9,19 @@
          <button class="info__btn info__btn--quick-setup btn">Настроить виджет</button>
       </div>
    </div>
+
+   <app-modal></app-modal>
 </template>
 
-<script setup></script>
+<script>
+   import { defineAsyncComponent } from 'vue';
+
+   export default {
+      components: {
+         AppModal: defineAsyncComponent(() => import('@/app/modal/AppModal.vue'))
+      }
+   };
+</script>
 
 <style scoped lang="sass">
    .widget__container
@@ -43,7 +53,7 @@
    .info
      display: flex
      width: 100%
-     min-height: 350px
+     min-height: 60vh
 
    .info__btn
      margin: auto
