@@ -1,10 +1,10 @@
 <template>
-   <article :class="{ 'modal--active': isOpen }" class="modal">
+   <article :class="{ 'modal--active': isOpen }" class="modal" @click.self="closeModal(false)">
       <div :class="{ 'modal--active': isOpen }" class="modal__container">
          <header class="modal-header">
             <h2 class="modal-header__title">Настройки виджета</h2>
 
-            <modal-close-btn class="modal-header__btn" />
+            <modal-close-btn class="modal-header__btn" @click="closeModal(false)" />
          </header>
 
          <slot name="settings">
@@ -35,11 +35,13 @@
          const isOpen = ref(false);
 
          const openModal = (value) => (isOpen.value = value);
+         const closeModal = (value) => (isOpen.value = value);
 
          onBeforeMount(() => emit('open:modal', openModal));
 
          return {
-            isOpen
+            isOpen,
+            closeModal
          };
       }
    };
