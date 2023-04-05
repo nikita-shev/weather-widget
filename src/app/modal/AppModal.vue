@@ -1,21 +1,24 @@
 <template>
-   <article :class="{ 'modal--active': isOpen }" class="modal" @click.self="closeModal(false)">
-      <div :class="{ 'modal--active': isOpen }" class="modal__container">
-         <header class="modal-header">
-            <h2 class="modal-header__title">Настройки виджета</h2>
+   <focus-trap v-model:active="isOpen">
+      <article :class="{ 'modal--active': isOpen }" class="modal" @click.self="closeModal(false)">
+         <div :class="{ 'modal--active': isOpen }" class="modal__container">
+            <header class="modal-header">
+               <h2 class="modal-header__title">Настройки виджета</h2>
 
-            <modal-close-btn class="modal-header__btn" @click="closeModal(false)" />
-         </header>
+               <modal-close-btn class="modal-header__btn" @click="closeModal(false)" />
+            </header>
 
-         <slot name="settings">
-            <modal-info />
-         </slot>
-      </div>
-   </article>
+            <slot name="settings">
+               <modal-info />
+            </slot>
+         </div>
+      </article>
+   </focus-trap>
 </template>
 
 <script>
    import { ref, onBeforeMount } from 'vue';
+   import { FocusTrap } from 'focus-trap-vue';
    import ModalCloseBtn from '@/app/modal/ModalCloseBtn/ModalCloseBtn.vue';
    import ModalInfo from '@/app/modal/ModalInfo/ModalInfo.vue';
 
@@ -23,6 +26,7 @@
       name: 'AppModal',
 
       components: {
+         FocusTrap,
          ModalCloseBtn,
          ModalInfo
       },
