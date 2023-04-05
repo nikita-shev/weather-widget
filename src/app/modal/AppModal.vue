@@ -4,7 +4,7 @@
          <header class="modal-header">
             <h2 class="modal-header__title">Настройки виджета</h2>
 
-            <button class="modal-header__btn btn"></button>
+            <modal-close-btn class="modal-header__btn" />
          </header>
 
          <slot name="settings">
@@ -17,8 +17,14 @@
 </template>
 
 <script>
+   import ModalCloseBtn from '@/app/modal/ModalCloseBtn/ModalCloseBtn.vue';
+
    export default {
-      name: 'AppModal'
+      name: 'AppModal',
+
+      components: {
+         ModalCloseBtn
+      }
    };
 </script>
 
