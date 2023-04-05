@@ -1,6 +1,6 @@
 <template>
-   <article class="modal">
-      <div class="modal__container">
+   <article :class="{ 'modal--active': isOpen }" class="modal">
+      <div :class="{ 'modal--active': isOpen }" class="modal__container">
          <header class="modal-header">
             <h2 class="modal-header__title">Настройки виджета</h2>
 
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+   import { ref, onBeforeMount } from 'vue';
    import ModalCloseBtn from '@/app/modal/ModalCloseBtn/ModalCloseBtn.vue';
    import ModalInfo from '@/app/modal/ModalInfo/ModalInfo.vue';
 
@@ -24,6 +25,22 @@
       components: {
          ModalCloseBtn,
          ModalInfo
+      },
+
+      emits: {
+         'open:modal': (value) => typeof value === 'function'
+      },
+
+      setup(_, { emit }) {
+         const isOpen = ref(false);
+
+         const openModal = (value) => (isOpen.value = value);
+
+         onBeforeMount(() => emit('open:modal', openModal));
+
+         return {
+            isOpen
+         };
       }
    };
 </script>

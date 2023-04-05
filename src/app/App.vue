@@ -6,19 +6,31 @@
       </header>
 
       <div v-if="true" class="widget__info info">
-         <button class="info__btn info__btn--quick-setup btn">Настроить виджет</button>
+         <button class="info__btn info__btn--quick-setup btn" @click="openModal(true)">
+            Настроить виджет
+         </button>
       </div>
    </div>
 
-   <app-modal></app-modal>
+   <app-modal @open:modal="setModalMethod"></app-modal>
 </template>
 
 <script>
-   import { defineAsyncComponent } from 'vue';
+   import { ref, defineAsyncComponent } from 'vue';
 
    export default {
       components: {
          AppModal: defineAsyncComponent(() => import('@/app/modal/AppModal.vue'))
+      },
+
+      setup() {
+         const openModal = ref(null);
+         const setModalMethod = (fn) => (openModal.value = fn);
+
+         return {
+            openModal,
+            setModalMethod
+         };
       }
    };
 </script>
