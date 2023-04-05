@@ -8,9 +8,7 @@
          </header>
 
          <slot name="settings">
-            <div class="modal-info">
-               <p class="modal-info__text"><span>404</span> not found</p>
-            </div>
+            <modal-info />
          </slot>
       </div>
    </article>
@@ -18,12 +16,14 @@
 
 <script>
    import ModalCloseBtn from '@/app/modal/ModalCloseBtn/ModalCloseBtn.vue';
+   import ModalInfo from '@/app/modal/ModalInfo/ModalInfo.vue';
 
    export default {
       name: 'AppModal',
 
       components: {
-         ModalCloseBtn
+         ModalCloseBtn,
+         ModalInfo
       }
    };
 </script>
