@@ -11,6 +11,14 @@ export default defineConfig({
          {
             find: '@use',
             replacement: fileURLToPath(new URL('./src/app/shared/use', import.meta.url))
+         },
+         {
+            find: '@store',
+            replacement: fileURLToPath(new URL('./src/app/shared/store', import.meta.url))
+         },
+         {
+            find: '@services',
+            replacement: fileURLToPath(new URL('./src/app/shared/services', import.meta.url))
          }
       ]
    }
