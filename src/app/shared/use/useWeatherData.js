@@ -1,24 +1,21 @@
-import { ref, onBeforeMount } from 'vue';
-import lookup from 'country-code-lookup';
-import fetchData from '@/app/shared/services/api/fetchData';
+import fetchData from '@services/api/fetchData.js';
+import getCountryCode from '@services/getCountryCode.js';
 
-export default function useWeatherData(country, city) {
+export default async function useWeatherData(country, city) {
    const API_KEY = import.meta.env.VITE_API_KEY;
-   const { iso3: countryCode } = lookup.byCountry(country);
-   const data = ref({});
+   const { countryCode, status } = getCountryCode(country);
 
-   const params = new URLSearchParams({
-      q: `${city},${countryCode}`,
-      units: 'metric',
-      lang: 'ru',
-      appid: `${API_KEY}`
-   }).toString();
+   if (status) {
+      const params = new URLSearchParams({
+         q: `${city},${countryCode}`,
+         units: 'metric',
+         lang: 'en',
+         appid: `${API_KEY}`
+      }).toString();
+      const data = await fetchData(params);
 
-   async function getData() {
-      data.value = (await fetchData(params)) || {};
+      return data.cod === 200 ? data : null;
    }
 
-   onBeforeMount(getData);
-
-   return { data };
+   return null;
 }
