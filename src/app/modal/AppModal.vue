@@ -9,7 +9,7 @@
             </header>
 
             <slot name="settings">
-               <modal-info />
+               <app-settings />
             </slot>
          </div>
       </article>
@@ -17,10 +17,9 @@
 </template>
 
 <script>
-   import { ref, onBeforeMount } from 'vue';
+   import { ref, onBeforeMount, defineAsyncComponent } from 'vue';
    import { FocusTrap } from 'focus-trap-vue';
    import ModalCloseBtn from '@/app/modal/ModalCloseBtn/ModalCloseBtn.vue';
-   import ModalInfo from '@/app/modal/ModalInfo/ModalInfo.vue';
 
    export default {
       name: 'AppModal',
@@ -28,7 +27,7 @@
       components: {
          FocusTrap,
          ModalCloseBtn,
-         ModalInfo
+         AppSettings: defineAsyncComponent(() => import('@/app/settings/AppSettings.vue'))
       },
 
       emits: {
