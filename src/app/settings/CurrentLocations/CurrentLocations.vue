@@ -14,7 +14,7 @@
 
                   <span class="location__data">{{ country }}, {{ city }}</span>
 
-                  <button class="location__btn btn">
+                  <button class="location__btn btn" @click="removeLocation(country, city)">
                      <i-remove class="location__btn-svg" />
                   </button>
                </div>
@@ -41,12 +41,13 @@
       },
 
       setup() {
-         const { state } = store;
+         const { state, removeLocation } = store;
          const isNotEmpty = computed(() => Boolean(state.value.length));
 
          return {
             state,
-            isNotEmpty
+            isNotEmpty,
+            removeLocation
          };
       }
    };
