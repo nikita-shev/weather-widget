@@ -8,7 +8,7 @@ const readonlyState = readonly(state);
 
 const actions = {
    addLocation(country, city) {
-      addLocation(state.value, { country, city });
+      addLocation(state, { country, city });
    },
 
    removeLocation(country, city) {

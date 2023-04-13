@@ -8,7 +8,7 @@ export default async function addLocation(state, payload) {
    const data = await useWeatherData(country, city);
 
    if (data) {
-      ADD_LOCATION(state, { country, city, data });
-      saveData(state);
+      ADD_LOCATION(state.value, { country, city, data });
+      saveData(state.value);
    }
 }
