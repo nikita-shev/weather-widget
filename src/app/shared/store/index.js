@@ -12,7 +12,7 @@ const actions = {
    },
 
    removeLocation(country, city) {
-      removeLocation(state.value, { country, city });
+      removeLocation(state, { country, city });
    }
 };
 

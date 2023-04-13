@@ -4,10 +4,10 @@ import saveData from '@store/utils/saveData.js';
 
 export default function removeLocation(state, payload) {
    const { country, city } = payload;
-   const isLocation = hasLocation(state, { country, city });
+   const isLocation = hasLocation(state.value, { country, city });
 
    if (isLocation) {
       REMOVE_LOCATION(state, { country, city });
-      saveData(state);
+      saveData(state.value);
    }
 }
