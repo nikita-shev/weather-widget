@@ -1,0 +1,87 @@
+<template>
+   <svg
+      id="Editable-line"
+      viewBox="0 0 32 32"
+      enable-background="new 0 0 32 32"
+      version="1.1"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+   >
+      <circle
+         id="XMLID_303_"
+         cx="5"
+         cy="6"
+         fill="none"
+         r="1"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         stroke-width="2"
+      />
+      <circle
+         id="XMLID_305_"
+         cx="5"
+         cy="16"
+         fill="none"
+         r="1"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         stroke-width="2"
+      />
+      <circle
+         id="XMLID_304_"
+         cx="5"
+         cy="26"
+         fill="none"
+         r="1"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         stroke-width="2"
+      />
+      <line
+         id="XMLID_29_"
+         fill="none"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         stroke-width="2"
+         x1="10"
+         x2="28"
+         y1="6"
+         y2="6"
+      />
+      <line
+         id="XMLID_30_"
+         fill="none"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         stroke-width="2"
+         x1="10"
+         x2="28"
+         y1="16"
+         y2="16"
+      />
+      <line
+         id="XMLID_31_"
+         fill="none"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         stroke-width="2"
+         x1="10"
+         x2="28"
+         y1="26"
+         y2="26"
+      />
+   </svg>
+</template>
+
+<script>
+   export default {
+      name: 'IList'
+   };
+</script>
