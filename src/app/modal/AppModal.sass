@@ -1,0 +1,40 @@
+.modal
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 10
+  display: flex
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.5)
+  opacity: 0
+  visibility: hidden
+  transition: opacity 500ms ease, visibility 500ms ease
+
+.modal__container
+  width: 90%
+  margin: auto
+  border-radius: 4px
+  background-color: #ffffff
+  opacity: 0
+  overflow: hidden
+  transform: translateY(-500%)
+  transition: transform 500ms ease, opacity 500ms ease
+
+.modal--active
+  opacity: 1
+  visibility: visible
+  transform: translateY(0)
+
+
+.modal-header
+  --m-header-color: #333333
+
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 10px
+  border-bottom: 1px solid var(--m-header-color)
+
+.modal-header__title
+  color: var(--m-header-color)
