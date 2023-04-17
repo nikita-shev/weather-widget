@@ -2,6 +2,7 @@ import { ref, readonly } from 'vue';
 
 import addLocation from '@store/actions/addLocation.js';
 import removeLocation from '@store/actions/removeLocation.js';
+import reverseLocation from '@store/actions/reverseLocation.js';
 
 const error = ref({ status: false, message: '' });
 const state = ref([]);
@@ -15,6 +16,10 @@ const actions = {
 
    removeLocation(country, city) {
       removeLocation({ state, error }, { country, city });
+   },
+
+   reverseLocation(payload) {
+      reverseLocation({ state, error }, payload);
    }
 };
 
@@ -27,5 +32,6 @@ export default {
    state: readonlyState,
    error: readonlyError,
    addLocation: actions.addLocation,
-   removeLocation: actions.removeLocation
+   removeLocation: actions.removeLocation,
+   reverseLocation: actions.reverseLocation
 };
