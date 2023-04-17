@@ -1,12 +1,16 @@
-export default function ADD_LOCATION(context, payload) {
-   const state = context.state.value;
-   const location = state.find((item) => item.data.id === payload.data.id);
+export default function ADD_LOCATION({ state, error }, payload) {
+   const location = state.value.find((item) => item.data.id === payload.data.id);
+
+   error.value = {
+      status: Boolean(location),
+      message: location ? `Город "${payload.city}" был добавлен ранее!` : ''
+   };
 
    if (!location) {
       const data = { id: payload.data.id, order: null, ...payload };
-      const latestData = state.at(-1);
+      const latestData = state.value.at(-1);
 
       data.order = latestData ? latestData.order + 1 : 1;
-      state.push(data);
+      state.value.push(data);
    }
 }
