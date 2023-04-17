@@ -1,4 +1,5 @@
-export default function ADD_LOCATION(state, payload) {
+export default function ADD_LOCATION(context, payload) {
+   const state = context.state.value;
    const location = state.find((item) => item.data.id === payload.data.id);
 
    if (!location) {
