@@ -13,7 +13,7 @@ const actions = {
    },
 
    removeLocation(country, city) {
-      removeLocation(state, { country, city });
+      removeLocation({ state, error }, { country, city });
    }
 };
 
