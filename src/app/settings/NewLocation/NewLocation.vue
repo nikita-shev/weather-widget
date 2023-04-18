@@ -11,15 +11,15 @@
          />
          <input v-model="city" class="new-location__input input" type="text" placeholder="Город" />
 
-         <p v-if="false" class="new-location__error">error.message</p>
+         <p v-if="error.status" class="new-location__error">{{ error.message }}</p>
       </div>
 
-      <button class="new-location__btn btn" @click="addNewLocation">Добавить</button>
+      <button class="new-location__btn btn" @click="addLocation(country, city)">Добавить</button>
    </article>
 </template>
 
 <script>
-   import { ref } from 'vue';
+   import { ref, watch } from 'vue';
    import store from '@store';
 
    export default {
@@ -28,19 +28,20 @@
       setup() {
          const country = ref('');
          const city = ref('');
-         const { addLocation } = store;
+         const { error, addLocation } = store;
 
-         function addNewLocation() {
-            addLocation(country.value, city.value);
-
-            country.value = '';
-            city.value = '';
-         }
+         watch(error, (error) => {
+            if (!error.status) {
+               country.value = '';
+               city.value = '';
+            }
+         });
 
          return {
             country,
             city,
-            addNewLocation
+            error,
+            addLocation
          };
       }
    };
