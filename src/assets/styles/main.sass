@@ -1,0 +1,22 @@
+@import "vendor"
+@import "variables"
+@import "mixins"
+
+// Common
+@import "common/parts/main"
+@import "common"
+
+// #app - delete
+#app
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100vw
+  height: 100vh
+
+.widget
+  position: relative
+  min-width: 320px
+  padding: 10px
+  background-color: rgba(0, 0, 0, 0.03)
+  overflow: hidden
