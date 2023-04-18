@@ -8,6 +8,10 @@
                v-for="{ country, city, data } of state"
                :key="data.id"
                class="current-locations__item"
+               draggable="true"
+               @dragstart="dragStartHandler($event, data.id)"
+               @dragover.prevent
+               @drop="dropHandler($event, data.id)"
             >
                <div class="location">
                   <i-list class="location__img" />
@@ -27,7 +31,7 @@
 </template>
 
 <script>
-   import { computed } from 'vue';
+   import { ref, computed } from 'vue';
    import store from '@store';
    import IList from '@/app/settings/CurrentLocations/Icons/IList.vue';
    import IRemove from '@/app/settings/CurrentLocations/Icons/IRemove.vue';
@@ -41,12 +45,29 @@
       },
 
       setup() {
-         const { state, removeLocation } = store;
+         const { state, removeLocation, reverseLocation } = store;
+         const locationIds = ref([]);
          const isNotEmpty = computed(() => Boolean(state.value.length));
+
+         function dragStartHandler(e, item) {
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.dropEffect = 'move';
+
+            locationIds.value.push(item);
+         }
+
+         function dropHandler(e, item) {
+            locationIds.value.push(item);
+
+            reverseLocation(locationIds);
+            locationIds.value = [];
+         }
 
          return {
             state,
             isNotEmpty,
+            dragStartHandler,
+            dropHandler,
             removeLocation
          };
       }
