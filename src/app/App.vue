@@ -1,14 +1,20 @@
 <template>
    <div class="widget__container">
-      <header v-if="false" class="widget__header header">
-         <button class="header__btn header__btn--add btn"></button>
-         <button class="header__btn header__btn--settings btn"></button>
+      <header v-if="weatherData.length" class="widget__header header">
+         <button class="header__btn header__btn--add btn" @click="openModal(true)"></button>
+         <button v-if="false" class="header__btn header__btn--settings btn"></button>
       </header>
 
-      <div v-if="true" class="widget__info info">
-         <button class="info__btn info__btn--quick-setup btn" @click="openModal(true)">
-            Настроить виджет
-         </button>
+      <div class="widget__wrap">
+         <div class="widget__cards cards">
+            <app-card v-for="item of weatherData" :key="item.id" :weather-data="item" />
+         </div>
+
+         <div v-if="!weatherData.length" class="widget__info info">
+            <button class="info__btn info__btn--quick-setup btn" @click="openModal(true)">
+               Настроить виджет
+            </button>
+         </div>
       </div>
    </div>
 
@@ -17,17 +23,21 @@
 
 <script>
    import { ref, defineAsyncComponent } from 'vue';
+   import store from '@store';
 
    export default {
       components: {
+         AppCard: defineAsyncComponent(() => import('@/app/card/AppCard.vue')),
          AppModal: defineAsyncComponent(() => import('@/app/modal/AppModal.vue'))
       },
 
       setup() {
+         const { state } = store;
          const openModal = ref(null);
          const setModalMethod = (fn) => (openModal.value = fn);
 
          return {
+            weatherData: state,
             openModal,
             setModalMethod
          };
@@ -41,17 +51,15 @@
      height: 100%
 
 
-   .widget__header
-     margin-bottom: 10px
-
    .header
      display: flex
      justify-content: space-between
      width: 100%
+     padding: 10px 10px 5px
 
    .header__btn
-     width: 25px
-     height: 25px
+     width: 20px
+     height: 20px
      background-size: cover
      opacity: 0.7
 
@@ -62,10 +70,22 @@
      background-image: url('@/assets/images/icons/settings-btn.svg')
 
 
+   .widget__wrap
+     height: 70vh
+     padding: 5px 10px 10px
+     overflow-y: auto
+
+
+   .cards
+     display: flex
+     flex-direction: column
+     row-gap: 10px
+
+
    .info
      display: flex
      width: 100%
-     min-height: 60vh
+     height: 100%
 
    .info__btn
      margin: auto
