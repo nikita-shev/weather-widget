@@ -11,7 +11,7 @@
             <h2 class="card-header__title">{{ country }}, {{ city }}</h2>
          </div>
 
-         <remove-card-btn class="card-header__btn" />
+         <remove-card-btn class="card-header__btn" @click="removeLocation(country, city)" />
       </header>
 
       <div class="card__weather-data weather-data">
@@ -66,6 +66,7 @@
    import IVisibility from '@/app/card/Icons/IVisibility.vue';
    import IWindSpeed from '@/app/card/Icons/IWindSpeed.vue';
    import { computed, toRefs } from 'vue';
+   import store from '@store';
 
    export default {
       name: 'AppCard',
@@ -91,6 +92,7 @@
       setup(props) {
          const { country, city, data } = toRefs(props.weatherData);
          const countryCode = data.value.sys.country.toLowerCase();
+         const { removeLocation } = store;
 
          const temp = Math.round(data.value.main.temp);
          const feelsLike = Math.round(data.value.main.feels_like);
@@ -116,7 +118,8 @@
             pressure,
             humidity: data.value.main.humidity,
             visibility,
-            windSpeed: data.value.wind.speed
+            windSpeed: data.value.wind.speed,
+            removeLocation
          };
       }
    };
