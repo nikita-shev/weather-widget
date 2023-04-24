@@ -1,5 +1,6 @@
 import { ref, readonly } from 'vue';
 
+import initStore from '@store/utils/initStore.js';
 import addLocation from '@store/actions/addLocation.js';
 import removeLocation from '@store/actions/removeLocation.js';
 import reverseLocation from '@store/actions/reverseLocation.js';
@@ -23,10 +24,7 @@ const actions = {
    }
 };
 
-const initStore = () => {
-   state.value = JSON.parse(localStorage.getItem('WeatherData')) || [];
-};
-initStore();
+initStore(state);
 
 export default {
    state: readonlyState,
