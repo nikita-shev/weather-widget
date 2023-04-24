@@ -1,6 +1,6 @@
 <template>
    <article class="current-locations">
-      <h3 class="current-locations__title">Города:</h3>
+      <h3 class="current-locations__title">Cities:</h3>
 
       <div class="current-locations__wrap">
          <ul v-if="isNotEmpty" class="current-locations__list">
@@ -10,7 +10,8 @@
                class="current-locations__item"
                draggable="true"
                @dragstart="dragStartHandler($event, data.id)"
-               @dragover.prevent
+               @dragover.prevent="dragOverHandler"
+               @dragleave="dragLeaveHandler"
                @drop="dropHandler($event, data.id)"
             >
                <div class="location">
@@ -56,17 +57,29 @@
             locationIds.value.push(item);
          }
 
+         function dragOverHandler(e) {
+            e.currentTarget.style.backgroundColor = '#8080801c';
+         }
+
+         function dragLeaveHandler(e) {
+            e.currentTarget.style.backgroundColor = '#ffffff';
+         }
+
          function dropHandler(e, item) {
             locationIds.value.push(item);
 
             reverseLocation(locationIds);
             locationIds.value = [];
+
+            e.currentTarget.style.backgroundColor = '#ffffff';
          }
 
          return {
             state,
             isNotEmpty,
             dragStartHandler,
+            dragOverHandler,
+            dragLeaveHandler,
             dropHandler,
             removeLocation
          };
