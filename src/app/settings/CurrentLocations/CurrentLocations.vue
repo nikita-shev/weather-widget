@@ -50,11 +50,11 @@
          const locationIds = ref([]);
          const isNotEmpty = computed(() => Boolean(state.value.length));
 
-         function dragStartHandler(e, item) {
+         function dragStartHandler(e, id) {
             e.dataTransfer.effectAllowed = 'move';
             e.dataTransfer.dropEffect = 'move';
 
-            locationIds.value.push(item);
+            locationIds.value.push(id);
          }
 
          function dragOverHandler(e) {
@@ -65,8 +65,8 @@
             e.currentTarget.style.backgroundColor = '#ffffff';
          }
 
-         function dropHandler(e, item) {
-            locationIds.value.push(item);
+         function dropHandler(e, id) {
+            locationIds.value.push(id);
 
             reverseLocation(locationIds);
             locationIds.value = [];
