@@ -11,7 +11,7 @@ export default async function addLocation(context, payload) {
    error.value = { status: !data, message: data ? '' : `Город "${city}" не найден!` };
 
    if (data) {
-      ADD_LOCATION(context, { country, city, data });
+      ADD_LOCATION(context, { country, city: data.name, data });
       saveData(state.value);
    }
 }
