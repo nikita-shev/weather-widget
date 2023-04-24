@@ -3,7 +3,7 @@
       <article :class="{ 'modal--active': isOpen }" class="modal" @click.self="closeModal(false)">
          <div :class="{ 'modal--active': isOpen }" class="modal__container">
             <header class="modal-header">
-               <h2 class="modal-header__title">Настройки виджета</h2>
+               <h2 class="modal-header__title">Settings</h2>
 
                <modal-close-btn class="modal-header__btn" @click="closeModal(false)" />
             </header>

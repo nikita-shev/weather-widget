@@ -1,20 +1,20 @@
 <template>
    <article class="new-location">
-      <h3 class="new-location__title">Добавить город:</h3>
+      <h3 class="new-location__title">Add city:</h3>
 
       <div class="new-location__wrap">
          <input
             v-model="country"
             class="new-location__input input"
             type="text"
-            placeholder="Страна"
+            placeholder="Country"
          />
-         <input v-model="city" class="new-location__input input" type="text" placeholder="Город" />
+         <input v-model="city" class="new-location__input input" type="text" placeholder="City" />
 
          <p v-if="error.status" class="new-location__error">{{ error.message }}</p>
       </div>
 
-      <button class="new-location__btn btn" @click="addLocation(country, city)">Добавить</button>
+      <button class="new-location__btn btn" @click="addLocation(country.trim(), city.trim())">Add</button>
    </article>
 </template>
 
