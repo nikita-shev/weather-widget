@@ -29,5 +29,5 @@
      height: 20px
 
      & svg
-       fill: var(--m-header-color)
+       fill: var(--color-primary)
 </style>
