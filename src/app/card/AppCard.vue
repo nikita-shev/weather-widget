@@ -20,14 +20,14 @@
                <img
                   :src="`https://openweathermap.org/img/wn/${weather.icon}@2x.png`"
                   class="temp__img"
-                  alt="Температура"
+                  alt="Temperature"
                />
 
                <p class="temp__text">{{ temp }}°C</p>
             </div>
 
             <div class="temp__notes">
-               <p class="temp__feels-like">Ощущается как {{ feelsLike }}°C.</p>
+               <p class="temp__feels-like">Feels like {{ feelsLike }}°C.</p>
                <p class="temp__clouds">{{ weather.description }}.</p>
             </div>
          </div>
@@ -35,7 +35,7 @@
          <div class="weather-data__other-data other-data">
             <div class="other-data__wrap">
                <i-pressure class="other-data__img" />
-               <span class="other-data__text">{{ pressure }} мм рт.ст.</span>
+               <span class="other-data__text">{{ pressure }} mm.hg.</span>
             </div>
 
             <div class="other-data__wrap">
@@ -45,12 +45,12 @@
 
             <div class="other-data__wrap">
                <i-visibility class="other-data__img" />
-               <span class="other-data__text">{{ visibility }} км</span>
+               <span class="other-data__text">{{ visibility }} km</span>
             </div>
 
             <div class="other-data__wrap">
                <i-wind-speed class="other-data__img" />
-               <span class="other-data__text">{{ windSpeed }} м/с</span>
+               <span class="other-data__text">{{ windSpeed }} m/s</span>
             </div>
          </div>
       </div>

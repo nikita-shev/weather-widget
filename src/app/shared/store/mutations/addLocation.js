@@ -3,7 +3,7 @@ export default function ADD_LOCATION({ state, error }, payload) {
 
    error.value = {
       status: Boolean(location),
-      message: location ? `Город "${payload.city}" был добавлен ранее!` : ''
+      message: location ? `City "${payload.city}" was added earlier!` : ''
    };
 
    if (!location) {

@@ -8,7 +8,7 @@ export default async function addLocation(context, payload) {
    const { country, city } = payload;
    const data = await useWeatherData(country, city);
 
-   error.value = { status: !data, message: data ? '' : `Город "${city}" не найден!` };
+   error.value = { status: !data, message: data ? '' : `City "${city}" not found!` };
 
    if (data) {
       ADD_LOCATION(context, { country, city: data.name, data });

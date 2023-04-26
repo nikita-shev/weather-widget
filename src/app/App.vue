@@ -12,7 +12,7 @@
 
          <div v-if="!weatherData.length" class="widget__info info">
             <button class="info__btn info__btn--quick-setup btn" @click="openModal(true)">
-               Настроить виджет
+               Settings
             </button>
          </div>
       </div>
