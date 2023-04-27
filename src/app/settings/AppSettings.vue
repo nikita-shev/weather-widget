@@ -24,4 +24,8 @@
      display: flex
      flex-direction: column
      gap: 15px
+
+   .v-align .settings
+     height: 85%
+     overflow-y: auto
 </style>

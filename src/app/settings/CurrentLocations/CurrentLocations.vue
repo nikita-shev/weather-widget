@@ -26,7 +26,7 @@
             </li>
          </ul>
 
-         <p v-else class="current-locations__info">Пусто</p>
+         <p v-else class="current-locations__info">Empty</p>
       </div>
    </article>
 </template>
