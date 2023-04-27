@@ -3,8 +3,15 @@
 
 .input
   @include font-styles(14px, 300)
-  border: 1px solid #ffffff
+  border: none
+  border-radius: 5px
   color: var(--text-primary)
-  // &:focus
-  //   border: 1px solid var(--bg-primary)
-  //   outline: none
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+  transition: box-shadow 0.3s ease-in-out
+
+  &:focus
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2)
+    outline: none
+
+  &::placeholder
+    color: #999999
