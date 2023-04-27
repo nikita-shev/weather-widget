@@ -1,0 +1,21 @@
+@import "vendor"
+@import "variables"
+@import "mixins"
+
+// Common
+@import "common/parts/main"
+@import "common"
+
+
+.widget
+  position: relative
+  width: 320px
+  background-color: rgba(0, 0, 0, 0.03)
+  overflow: hidden
+
+.v-align .widget
+  width: 90%
+
+@media (max-width: 576px)
+  .v-align .widget
+    width: 100%
