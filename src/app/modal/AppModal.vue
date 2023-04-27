@@ -1,7 +1,11 @@
 <template>
-   <focus-trap v-model:active="isOpen">
-      <article :class="{ 'modal--active': isOpen }" class="modal" @click.self="closeModal(false)">
-         <div :class="{ 'modal--active': isOpen }" class="modal__container">
+   <focus-trap v-model:active="modalData.isOpen">
+      <article
+         :class="{ 'modal--active': modalData.isOpen }"
+         class="modal"
+         @click.self="closeModal(false)"
+      >
+         <div :class="{ 'modal--active': modalData.isOpen }" class="modal__container">
             <header class="modal-header">
                <h2 class="modal-header__title">Settings</h2>
 
@@ -9,7 +13,9 @@
             </header>
 
             <slot name="settings">
-               <app-settings />
+               <keep-alive>
+                  <component :is="modalData.component" />
+               </keep-alive>
             </slot>
          </div>
       </article>
@@ -35,15 +41,16 @@
       },
 
       setup(_, { emit }) {
-         const isOpen = ref(false);
+         const modalData = ref({ isOpen: false, component: 'AppSettings' });
 
-         const openModal = (value) => (isOpen.value = value);
-         const closeModal = (value) => (isOpen.value = value);
+         const openModal = (value) => (modalData.value = { isOpen: true, component: value });
+
+         const closeModal = (value) => (modalData.value.isOpen = value);
 
          onBeforeMount(() => emit('open:modal', openModal));
 
          return {
-            isOpen,
+            modalData,
             closeModal
          };
       }
