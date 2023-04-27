@@ -1,61 +1,63 @@
 <template>
    <article class="card">
-      <header class="card__card-header card-header">
-         <div class="card-header__wrap">
-            <img
-               :src="`https://flagcdn.com/16x12/${countryCode}.webp`"
-               :alt="country"
-               class="card-header__img"
-            />
-
-            <h2 class="card-header__title">{{ country }}, {{ city }}</h2>
-         </div>
-
-         <remove-card-btn class="card-header__btn" @click="removeLocation(country, city)" />
-      </header>
-
-      <div class="card__weather-data weather-data">
-         <div class="weather-data__temp temp">
-            <div class="temp__info">
+      <div class="card__wrap">
+         <header class="card__card-header card-header">
+            <div class="card-header__wrap">
                <img
-                  :src="`https://openweathermap.org/img/wn/${weather.icon}@2x.png`"
-                  class="temp__img"
-                  alt="Temperature"
+                  :src="`https://flagcdn.com/16x12/${countryCode}.webp`"
+                  :alt="country"
+                  class="card-header__img"
                />
 
-               <p class="temp__text">{{ temp }}°C</p>
+               <h2 class="card-header__title">{{ country }}, {{ city }}</h2>
             </div>
 
-            <div class="temp__notes">
-               <p class="temp__feels-like">Feels like {{ feelsLike }}°C.</p>
-               <p class="temp__clouds">{{ weather.description }}.</p>
+            <remove-card-btn class="card-header__btn" @click="removeLocation(country, city)" />
+         </header>
+
+         <div class="card__weather-data weather-data">
+            <div class="weather-data__temp temp">
+               <div class="temp__info">
+                  <img
+                     :src="`https://openweathermap.org/img/wn/${weather.icon}@2x.png`"
+                     class="temp__img"
+                     alt="Temperature"
+                  />
+
+                  <p class="temp__text">{{ temp }}°C</p>
+               </div>
+
+               <div class="temp__notes">
+                  <p class="temp__feels-like">Feels like {{ feelsLike }}°C.</p>
+                  <p class="temp__clouds">{{ weather.description }}.</p>
+               </div>
+            </div>
+
+            <div class="weather-data__other-data other-data">
+               <div class="other-data__wrap">
+                  <i-pressure class="other-data__img" />
+                  <span class="other-data__text">{{ pressure }} mm.hg.</span>
+               </div>
+
+               <div class="other-data__wrap">
+                  <i-humidity class="other-data__img" />
+                  <span class="other-data__text">{{ humidity }} %</span>
+               </div>
+
+               <div class="other-data__wrap">
+                  <i-visibility class="other-data__img" />
+                  <span class="other-data__text">{{ visibility }} km</span>
+               </div>
+
+               <div class="other-data__wrap">
+                  <i-wind-speed class="other-data__img" />
+                  <span class="other-data__text">{{ windSpeed }} m/s</span>
+               </div>
             </div>
          </div>
 
-         <div class="weather-data__other-data other-data">
-            <div class="other-data__wrap">
-               <i-pressure class="other-data__img" />
-               <span class="other-data__text">{{ pressure }} mm.hg.</span>
-            </div>
-
-            <div class="other-data__wrap">
-               <i-humidity class="other-data__img" />
-               <span class="other-data__text">{{ humidity }} %</span>
-            </div>
-
-            <div class="other-data__wrap">
-               <i-visibility class="other-data__img" />
-               <span class="other-data__text">{{ visibility }} km</span>
-            </div>
-
-            <div class="other-data__wrap">
-               <i-wind-speed class="other-data__img" />
-               <span class="other-data__text">{{ windSpeed }} m/s</span>
-            </div>
-         </div>
+         <img :src="bgUrl" :alt="weather.main" class="card__bg" />
       </div>
-
-      <img :src="bgUrl" :alt="weather.main" class="card__bg" />
    </article>
 </template>
 
