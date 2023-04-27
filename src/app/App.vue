@@ -10,7 +10,7 @@
          <button
             :class="{ 'header__btn--hidden': isEmptyState }"
             class="header__btn header__btn--settings btn"
-            @click="openModal('AppSettings')"
+            @click="openModal('ApplicationSettings')"
          ></button>
       </header>
 
