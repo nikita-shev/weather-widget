@@ -6,7 +6,7 @@
 
       <div class="settings__wrap">
          <label class="settings__label">
-            <input class="settings__checkbox" type="checkbox" />
+            <input v-model="alignment" class="settings__checkbox" type="checkbox" />
             <span class="settings__label-text">Widget vertical alignment</span>
          </label>
 
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+   import useAlignment from '@/app/application-settings/use/useAlignment.js';
    import ISave from '@/app/application-settings/Icons/ISave.vue';
 
    export default {
@@ -31,6 +32,14 @@
 
       components: {
          ISave
+      },
+
+      setup() {
+         const { alignment } = useAlignment();
+
+         return {
+            alignment
+         };
       }
    };
 </script>

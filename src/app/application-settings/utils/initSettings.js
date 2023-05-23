@@ -1,3 +1,5 @@
+import useAlignment from "@/app/application-settings/use/useAlignment.js";
+
 export default function initSettings() {
    const data = JSON.parse(localStorage.getItem('WidgetSettings'));
 
@@ -10,4 +12,6 @@ export default function initSettings() {
 
       localStorage.setItem('WidgetSettings', JSON.stringify(settings));
    }
+
+   useAlignment();
 }
