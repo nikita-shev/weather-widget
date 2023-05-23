@@ -33,6 +33,7 @@
 <script>
    import { ref, defineAsyncComponent, computed } from 'vue';
    import store from '@store';
+   import initSettings from '@/app/application-settings/utils/initSettings';
    import AppCard from '@/app/card/AppCard.vue';
 
    export default {
@@ -46,6 +47,8 @@
          const openModal = ref(null);
 
          const isEmptyState = computed(() => !state.value.length);
+
+         initSettings();
 
          const setModalMethod = (fn) => (openModal.value = fn);
 
