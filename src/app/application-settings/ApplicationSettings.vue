@@ -6,8 +6,8 @@
 
       <div class="settings__wrap">
          <label class="settings__label">
-            <input v-model="alignment" class="settings__checkbox" type="checkbox" />
-            <span class="settings__label-text">Widget vertical alignment</span>
+            <input v-model="verticalPosition" class="settings__checkbox" type="checkbox" />
+            <span class="settings__label-text">Widget vertical position</span>
          </label>
 
          <label class="settings__label">
@@ -36,11 +36,11 @@
       },
 
       setup() {
-         const { alignment } = useAlignment();
+         const { verticalPosition } = useAlignment();
          const { background } = useBackground();
 
          return {
-            alignment,
+            verticalPosition,
             background
          };
       }

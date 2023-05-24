@@ -3,14 +3,14 @@ import getData from '@/app/application-settings/utils/getData.js';
 import saveData from '@/app/application-settings/utils/saveData.js';
 
 export default function useAlignment() {
-   const type = 'alignment';
+   const type = 'verticalPosition';
    const data = getData(type);
-   const alignment = ref(data.alignment.value);
+   const verticalPosition = ref(data.verticalPosition.value);
 
    watch(
-      alignment,
+      verticalPosition,
       (value) => {
-         value ? document.body.classList.add('v-align') : document.body.classList.remove('v-align');
+         value ? document.body.classList.remove('v-align') : document.body.classList.add('v-align');
 
          saveData(type, { value });
       },
@@ -18,6 +18,6 @@ export default function useAlignment() {
    );
 
    return {
-      alignment
+      verticalPosition
    };
 }

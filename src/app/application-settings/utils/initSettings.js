@@ -6,7 +6,7 @@ export default function initSettings() {
 
    if (!data) {
       const settings = {
-         alignment: { value: false },
+         verticalPosition: { value: true },
          width: { value: '320px' },
          background: { value: true }
       };
