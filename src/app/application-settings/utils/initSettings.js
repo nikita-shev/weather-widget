@@ -1,4 +1,5 @@
-import useAlignment from "@/app/application-settings/use/useAlignment.js";
+import useAlignment from '@/app/application-settings/use/useAlignment.js';
+import useBackground from '@/app/application-settings/use/useBackground.js';
 
 export default function initSettings() {
    const data = JSON.parse(localStorage.getItem('WidgetSettings'));
@@ -7,11 +8,12 @@ export default function initSettings() {
       const settings = {
          alignment: { value: false },
          width: { value: '320px' },
-         background: { value: false }
+         background: { value: true }
       };
 
       localStorage.setItem('WidgetSettings', JSON.stringify(settings));
    }
 
    useAlignment();
+   useBackground();
 }

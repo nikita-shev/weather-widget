@@ -11,8 +11,8 @@
          </label>
 
          <label class="settings__label">
-            <input class="settings__checkbox" type="checkbox" />
-            <span class="settings__label-text">Remove background</span>
+            <input v-model="background" class="settings__checkbox" type="checkbox" />
+            <span class="settings__label-text">Add background</span>
          </label>
 
          <div class="settings__widget-width widget-width">
@@ -25,6 +25,7 @@
 
 <script>
    import useAlignment from '@/app/application-settings/use/useAlignment.js';
+   import useBackground from '@/app/application-settings/use/useBackground.js';
    import ISave from '@/app/application-settings/Icons/ISave.vue';
 
    export default {
@@ -36,9 +37,11 @@
 
       setup() {
          const { alignment } = useAlignment();
+         const { background } = useBackground();
 
          return {
-            alignment
+            alignment,
+            background
          };
       }
    };
