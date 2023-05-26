@@ -16,8 +16,12 @@
          </label>
 
          <div class="settings__widget-width widget-width">
-            <span class="widget-width__text">Container size:</span>
-            <input class="widget-width__input input" type="text" value="320px" />
+            <span class="widget-width__text">Container width:</span>
+            <input v-model="containerWidth" class="widget-width__input input" type="text" />
+
+            <button class="settings__btn btn" @click="createContainerWidth(containerWidth)">
+               <i-save />
+            </button>
          </div>
       </div>
    </div>
@@ -26,6 +30,7 @@
 <script>
    import useAlignment from '@/app/application-settings/use/useAlignment.js';
    import useBackground from '@/app/application-settings/use/useBackground.js';
+   import useContainerWidth from '@/app/application-settings/use/useContainerWidth.js';
    import ISave from '@/app/application-settings/Icons/ISave.vue';
 
    export default {
@@ -38,10 +43,13 @@
       setup() {
          const { verticalPosition } = useAlignment();
          const { background } = useBackground();
+         const { containerWidth, createContainerWidth } = useContainerWidth();
 
          return {
             verticalPosition,
-            background
+            background,
+            containerWidth,
+            createContainerWidth
          };
       }
    };

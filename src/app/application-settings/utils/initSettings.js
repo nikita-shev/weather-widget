@@ -1,5 +1,6 @@
 import useAlignment from '@/app/application-settings/use/useAlignment.js';
 import useBackground from '@/app/application-settings/use/useBackground.js';
+import useContainerWidth from '@/app/application-settings/use/useContainerWidth.js';
 
 export default function initSettings() {
    const data = JSON.parse(localStorage.getItem('WidgetSettings'));
@@ -7,7 +8,7 @@ export default function initSettings() {
    if (!data) {
       const settings = {
          verticalPosition: { value: true },
-         width: { value: '320px' },
+         containerWidth: { value: '280px' },
          background: { value: true }
       };
 
@@ -16,4 +17,7 @@ export default function initSettings() {
 
    useAlignment();
    useBackground();
+
+   const { createContainerWidth } = useContainerWidth();
+   createContainerWidth();
 }
