@@ -1,15 +1,21 @@
 <template>
-   <focus-trap v-model:active="isOpen">
-      <article :class="{ 'modal--active': isOpen }" class="modal" @click.self="closeModal(false)">
-         <div :class="{ 'modal--active': isOpen }" class="modal__container">
+   <focus-trap v-model:active="modalData.isOpen">
+      <article
+         :class="{ 'modal--active': modalData.isOpen }"
+         class="modal"
+         @click.self="closeModal(false)"
+      >
+         <div :class="{ 'modal--active': modalData.isOpen }" class="modal__container">
             <header class="modal-header">
-               <h2 class="modal-header__title">Settings</h2>
+               <h2 class="modal-header__title">{{ title }}</h2>
 
                <modal-close-btn class="modal-header__btn" @click="closeModal(false)" />
             </header>
 
             <slot name="settings">
-               <app-settings />
+               <keep-alive>
+                  <component :is="modalData.component" />
+               </keep-alive>
             </slot>
          </div>
       </article>
@@ -17,7 +23,7 @@
 </template>
 
 <script>
-   import { ref, onBeforeMount, defineAsyncComponent } from 'vue';
+   import { ref, onBeforeMount, defineAsyncComponent, computed } from 'vue';
    import { FocusTrap } from 'focus-trap-vue';
    import ModalCloseBtn from '@/app/modal/ModalCloseBtn/ModalCloseBtn.vue';
 
@@ -27,7 +33,10 @@
       components: {
          FocusTrap,
          ModalCloseBtn,
-         AppSettings: defineAsyncComponent(() => import('@/app/settings/AppSettings.vue'))
+         AppSettings: defineAsyncComponent(() => import('@/app/locations/AppSettings.vue')),
+         ApplicationSettings: defineAsyncComponent(() =>
+            import('@/app/settings/ApplicationSettings.vue')
+         )
       },
 
       emits: {
@@ -35,15 +44,20 @@
       },
 
       setup(_, { emit }) {
-         const isOpen = ref(false);
+         const modalData = ref({ isOpen: false, component: 'AppSettings' });
 
-         const openModal = (value) => (isOpen.value = value);
-         const closeModal = (value) => (isOpen.value = value);
+         const title = computed(() =>
+            modalData.value.component === 'AppSettings' ? 'Add Location' : 'Settings'
+         );
+
+         const openModal = (value) => (modalData.value = { isOpen: true, component: value });
+         const closeModal = (value) => (modalData.value.isOpen = value);
 
          onBeforeMount(() => emit('open:modal', openModal));
 
          return {
-            isOpen,
+            modalData,
+            title,
             closeModal
          };
       }

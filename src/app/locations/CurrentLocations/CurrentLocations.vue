@@ -34,8 +34,8 @@
 <script>
    import { ref, computed } from 'vue';
    import store from '@store';
-   import IList from '@/app/settings/CurrentLocations/Icons/IList.vue';
-   import IRemove from '@/app/settings/CurrentLocations/Icons/IRemove.vue';
+   import IList from '@/app/locations/CurrentLocations/Icons/IList.vue';
+   import IRemove from '@/app/locations/CurrentLocations/Icons/IRemove.vue';
 
    export default {
       name: 'CurrentLocations',

@@ -4,10 +4,14 @@
          <button
             :class="{ 'header__btn--hidden': isEmptyState }"
             class="header__btn header__btn--add btn"
-            @click="openModal(true)"
+            @click="openModal('AppSettings')"
          ></button>
 
-         <button v-if="false" class="header__btn header__btn--settings btn"></button>
+         <button
+            :class="{ 'header__btn--hidden': isEmptyState }"
+            class="header__btn header__btn--settings btn"
+            @click="openModal('ApplicationSettings')"
+         ></button>
       </header>
 
       <div class="widget__wrap">
@@ -16,7 +20,7 @@
          </div>
 
          <div v-if="isEmptyState" class="widget__info info">
-            <button class="info__btn info__btn--quick-setup btn" @click="openModal(true)">
+            <button class="info__btn info__btn--quick-setup btn" @click="openModal('AppSettings')">
                Settings
             </button>
          </div>
@@ -29,6 +33,7 @@
 <script>
    import { ref, defineAsyncComponent, computed } from 'vue';
    import store from '@store';
+   import initSettings from '@/app/settings/utils/initSettings';
    import AppCard from '@/app/card/AppCard.vue';
 
    export default {
@@ -42,6 +47,8 @@
          const openModal = ref(null);
 
          const isEmptyState = computed(() => !state.value.length);
+
+         initSettings();
 
          const setModalMethod = (fn) => (openModal.value = fn);
 
