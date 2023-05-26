@@ -33,7 +33,7 @@
 <script>
    import { ref, defineAsyncComponent, computed } from 'vue';
    import store from '@store';
-   import initSettings from '@/app/application-settings/utils/initSettings';
+   import initSettings from '@/app/settings/utils/initSettings';
    import AppCard from '@/app/card/AppCard.vue';
 
    export default {

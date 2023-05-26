@@ -35,7 +35,7 @@
          ModalCloseBtn,
          AppSettings: defineAsyncComponent(() => import('@/app/locations/AppSettings.vue')),
          ApplicationSettings: defineAsyncComponent(() =>
-            import('@/app/application-settings/ApplicationSettings.vue')
+            import('@/app/settings/ApplicationSettings.vue')
          )
       },
 

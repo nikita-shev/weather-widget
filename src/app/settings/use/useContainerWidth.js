@@ -1,6 +1,6 @@
 import { ref } from 'vue';
-import getData from '@/app/application-settings/utils/getData.js';
-import saveData from '@/app/application-settings/utils/saveData.js';
+import getData from '@/app/settings/utils/getData.js';
+import saveData from '@/app/settings/utils/saveData.js';
 
 export default function useContainerWidth() {
    const type = 'containerWidth';

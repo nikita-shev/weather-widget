@@ -24,10 +24,10 @@
 </template>
 
 <script>
-   import useAlignment from '@/app/application-settings/use/useAlignment.js';
-   import useBackground from '@/app/application-settings/use/useBackground.js';
-   import useContainerWidth from '@/app/application-settings/use/useContainerWidth.js';
-   import ISave from '@/app/application-settings/Icons/ISave.vue';
+   import useAlignment from '@/app/settings/use/useAlignment.js';
+   import useBackground from '@/app/settings/use/useBackground.js';
+   import useContainerWidth from '@/app/settings/use/useContainerWidth.js';
+   import ISave from '@/app/settings/Icons/ISave.vue';
 
    export default {
       name: 'ApplicationSettings',
