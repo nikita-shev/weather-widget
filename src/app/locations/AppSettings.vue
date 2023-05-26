@@ -6,8 +6,8 @@
 </template>
 
 <script>
-   import CurrentLocations from '@/app/settings/CurrentLocations/CurrentLocations.vue';
-   import NewLocation from '@/app/settings/NewLocation/NewLocation.vue';
+   import CurrentLocations from '@/app/locations/CurrentLocations/CurrentLocations.vue';
+   import NewLocation from '@/app/locations/NewLocation/NewLocation.vue';
 
    export default {
       name: 'AppSettings',
