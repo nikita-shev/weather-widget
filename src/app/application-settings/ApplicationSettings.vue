@@ -1,9 +1,5 @@
 <template>
    <div class="settings">
-      <button class="settings__btn settings__btn--save btn">
-         <i-save />
-      </button>
-
       <div class="settings__wrap">
          <label class="settings__label">
             <input v-model="verticalPosition" class="settings__checkbox" type="checkbox" />
