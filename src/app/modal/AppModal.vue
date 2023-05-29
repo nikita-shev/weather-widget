@@ -5,7 +5,11 @@
          class="modal"
          @click.self="closeModal(false)"
       >
-         <div :class="{ 'modal--active': modalData.isOpen }" class="modal__container">
+         <div
+            :class="{ 'modal--active': modalData.isOpen }"
+            :data-container="modalData.component"
+            class="modal__container"
+         >
             <header class="modal-header">
                <h2 class="modal-header__title">{{ title }}</h2>
 

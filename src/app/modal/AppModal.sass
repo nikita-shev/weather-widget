@@ -12,7 +12,9 @@
   transition: opacity 500ms ease, visibility 500ms ease
 
 .modal__container
-  width: 90%
+  width: 100%
+  max-width: 40%
+  min-width: 260px
   margin: auto
   border-radius: 4px
   background-color: #ffffff
@@ -21,9 +23,7 @@
   transform: translateY(-500%)
   transition: transform 500ms ease, opacity 500ms ease
 
-.v-align .modal__container
-  min-width: 290px
-  max-width: 40%
+.v-align .modal__container[data-container="AppLocations"]
   height: 90%
 
 .modal--active
