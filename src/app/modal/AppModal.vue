@@ -5,7 +5,11 @@
          class="modal"
          @click.self="closeModal(false)"
       >
-         <div :class="{ 'modal--active': modalData.isOpen }" class="modal__container">
+         <div
+            :class="{ 'modal--active': modalData.isOpen }"
+            :data-container="modalData.component"
+            class="modal__container"
+         >
             <header class="modal-header">
                <h2 class="modal-header__title">{{ title }}</h2>
 
@@ -23,9 +27,11 @@
 </template>
 
 <script>
-   import { ref, onBeforeMount, defineAsyncComponent, computed } from 'vue';
+   import { ref, onBeforeMount, computed } from 'vue';
    import { FocusTrap } from 'focus-trap-vue';
    import ModalCloseBtn from '@/app/modal/ModalCloseBtn/ModalCloseBtn.vue';
+   import AppLocations from '@/app/locations/AppLocations.vue';
+   import AppSettings from '@/app/settings/AppSettings.vue';
 
    export default {
       name: 'AppModal',
@@ -33,8 +39,8 @@
       components: {
          FocusTrap,
          ModalCloseBtn,
-         AppLocations: defineAsyncComponent(() => import('@/app/locations/AppLocations.vue')),
-         AppSettings: defineAsyncComponent(() => import('@/app/settings/AppSettings.vue'))
+         AppLocations,
+         AppSettings
       },
 
       emits: {
