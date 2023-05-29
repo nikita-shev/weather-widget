@@ -10,7 +10,7 @@
    import NewLocation from '@/app/locations/NewLocation/NewLocation.vue';
 
    export default {
-      name: 'AppSettings',
+      name: 'AppLocations',
 
       components: {
          CurrentLocations,
