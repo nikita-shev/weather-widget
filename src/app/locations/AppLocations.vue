@@ -1,5 +1,5 @@
 <template>
-   <div class="settings">
+   <div class="locations">
       <current-locations />
       <new-location />
    </div>
@@ -20,12 +20,12 @@
 </script>
 
 <style scoped lang="sass">
-   .settings
+   .locations
      display: flex
      flex-direction: column
      gap: 15px
 
-   .v-align .settings
+   .v-align .locations
      height: 85%
      overflow-y: auto
 </style>
