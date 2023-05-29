@@ -1,5 +1,5 @@
 <template>
-   <div class="settings">
+   <div class="locations">
       <current-locations />
       <new-location />
    </div>
@@ -10,7 +10,7 @@
    import NewLocation from '@/app/locations/NewLocation/NewLocation.vue';
 
    export default {
-      name: 'AppSettings',
+      name: 'AppLocations',
 
       components: {
          CurrentLocations,
@@ -20,12 +20,12 @@
 </script>
 
 <style scoped lang="sass">
-   .settings
+   .locations
      display: flex
      flex-direction: column
      gap: 15px
 
-   .v-align .settings
+   .v-align .locations
      height: 85%
      overflow-y: auto
 </style>

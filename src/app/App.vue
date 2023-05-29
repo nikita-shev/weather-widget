@@ -4,13 +4,13 @@
          <button
             :class="{ 'header__btn--hidden': isEmptyState }"
             class="header__btn header__btn--add btn"
-            @click="openModal('AppSettings')"
+            @click="openModal('AppLocations')"
          ></button>
 
          <button
             :class="{ 'header__btn--hidden': isEmptyState }"
             class="header__btn header__btn--settings btn"
-            @click="openModal('ApplicationSettings')"
+            @click="openModal('AppSettings')"
          ></button>
       </header>
 
@@ -20,7 +20,7 @@
          </div>
 
          <div v-if="isEmptyState" class="widget__info info">
-            <button class="info__btn info__btn--quick-setup btn" @click="openModal('AppSettings')">
+            <button class="info__btn info__btn--quick-setup btn" @click="openModal('AppLocations')">
                Settings
             </button>
          </div>

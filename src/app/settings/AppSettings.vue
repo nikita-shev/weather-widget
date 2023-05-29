@@ -30,7 +30,7 @@
    import ISave from '@/app/settings/Icons/ISave.vue';
 
    export default {
-      name: 'ApplicationSettings',
+      name: 'AppSettings',
 
       components: {
          ISave
@@ -51,4 +51,4 @@
    };
 </script>
 
-<style src="./ApplicationSettings.sass" scoped lang="sass"></style>
+<style src="./AppSettings.sass" scoped lang="sass"></style>

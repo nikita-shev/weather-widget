@@ -33,10 +33,8 @@
       components: {
          FocusTrap,
          ModalCloseBtn,
-         AppSettings: defineAsyncComponent(() => import('@/app/locations/AppSettings.vue')),
-         ApplicationSettings: defineAsyncComponent(() =>
-            import('@/app/settings/ApplicationSettings.vue')
-         )
+         AppLocations: defineAsyncComponent(() => import('@/app/locations/AppLocations.vue')),
+         AppSettings: defineAsyncComponent(() => import('@/app/settings/AppSettings.vue'))
       },
 
       emits: {
@@ -44,10 +42,10 @@
       },
 
       setup(_, { emit }) {
-         const modalData = ref({ isOpen: false, component: 'AppSettings' });
+         const modalData = ref({ isOpen: false, component: 'AppLocations' });
 
          const title = computed(() =>
-            modalData.value.component === 'AppSettings' ? 'Add Location' : 'Settings'
+            modalData.value.component === 'AppLocations' ? 'Add Location' : 'Settings'
          );
 
          const openModal = (value) => (modalData.value = { isOpen: true, component: value });
