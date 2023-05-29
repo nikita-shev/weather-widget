@@ -34,9 +34,7 @@
          FocusTrap,
          ModalCloseBtn,
          AppLocations: defineAsyncComponent(() => import('@/app/locations/AppLocations.vue')),
-         ApplicationSettings: defineAsyncComponent(() =>
-            import('@/app/settings/ApplicationSettings.vue')
-         )
+         AppSettings: defineAsyncComponent(() => import('@/app/settings/AppSettings.vue'))
       },
 
       emits: {
