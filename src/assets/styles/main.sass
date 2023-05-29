@@ -1,0 +1,17 @@
+@import "vendor"
+@import "variables"
+@import "mixins"
+
+// Common
+@import "common/parts/main"
+@import "common"
+
+
+.widget
+  position: relative
+  width: var(--container-width)
+  background-color: rgba(0, 0, 0, 0.03)
+  overflow: hidden
+
+.v-align .widget
+  width: var(--container-width)
